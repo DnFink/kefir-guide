@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milk Kefir Simple Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        .tab-active { color: #4f46e5; border-bottom: 2px solid #4f46e5; background-color: #f5f3ff; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen p-4 md:p-8">
+
+    <div class="max-w-2xl mx-auto bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
+        <!-- Header -->
+        <div class="bg-indigo-600 p-6 text-white text-center">
+            <h1 class="text-2xl font-bold mb-1">Milk Kefir Guide</h1>
+            <p class="opacity-90 text-sm">Everything you need for daily maintenance</p>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="flex border-b border-slate-100 cursor-pointer">
+            <div id="tab-daily" onclick="showTab('daily')" class="flex-1 py-4 text-center text-sm font-medium transition-colors tab-active">
+                Daily Cycle
+            </div>
+            <div id="tab-weekly" onclick="showTab('weekly')" class="flex-1 py-4 text-center text-sm font-medium transition-colors text-slate-500 hover:bg-slate-50">
+                Weekly
+            </div>
+            <div id="tab-vacation" onclick="showTab('vacation')" class="flex-1 py-4 text-center text-sm font-medium transition-colors text-slate-500 hover:bg-slate-50">
+                Vacation
+            </div>
+        </div>
+
+        <!-- Daily Content -->
+        <div id="content-daily" class="p-6 space-y-8">
+            <div class="flex gap-4">
+                <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 font-bold">1</div>
+                <div>
+                    <h3 class="font-bold text-slate-800">Strain</h3>
+                    <p class="text-slate-600 text-sm">Pour through a plastic strainer into a bowl. Use a plastic spoon to stir.</p>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <div class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0 font-bold">2</div>
+                <div>
+                    <h3 class="font-bold text-slate-800">Save Grains</h3>
+                    <p class="text-slate-600 text-sm">Collect the grains from the strainer. Never rinse them with water!</p>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <div class="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center shrink-0 font-bold">3</div>
+                <div>
+                    <h3 class="font-bold text-slate-800">Add Milk</h3>
+                    <p class="text-slate-600 text-sm">Put grains in a clean jar. Add 1-2 cups of fresh milk.</p>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <div class="w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center shrink-0 font-bold">4</div>
+                <div>
+                    <h3 class="font-bold text-slate-800">Ferment</h3>
+                    <p class="text-slate-600 text-sm">Cover with a cloth. Leave at room temp for 24 hours.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Weekly Content -->
+        <div id="content-weekly" class="p-6 hidden space-y-4">
+            <div class="bg-amber-50 border border-amber-100 rounded-xl p-4 text-sm text-amber-800 mb-4">
+                <strong>Note:</strong> If the kefir separates into watery layers too fast, you have too many grains.
+            </div>
+            <div class="p-4 rounded-xl border border-slate-100 bg-white shadow-sm">
+                <h4 class="font-bold text-slate-800">Jar Swap</h4>
+                <p class="text-sm text-slate-600">Once or twice a week, start with a fresh, soap-cleaned jar to keep things hygienic.</p>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-100 bg-white shadow-sm">
+                <h4 class="font-bold text-slate-800">Thin the Grains</h4>
+                <p class="text-sm text-slate-600">Remove extra grains. Give them to a friend or eat them (they are probiotic!).</p>
+            </div>
+        </div>
+
+        <!-- Vacation Content -->
+        <div id="content-vacation" class="p-6 hidden text-center">
+            <div class="bg-indigo-50 rounded-2xl p-6 text-left">
+                <h3 class="font-bold text-indigo-900 mb-4 text-center">How to Pause (up to 3 weeks)</h3>
+                <ul class="space-y-3 text-sm text-slate-700">
+                    <li>• Put grains in fresh milk.</li>
+                    <li>• Use a <strong>tight-fitting lid</strong>.</li>
+                    <li>• Place the jar in the <strong>fridge</strong>.</li>
+                    <li>• <strong>To restart:</strong> Strain, throw away that milk, and start a fresh 24h cycle.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-center gap-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+            <span>Glass Only</span>
+            <span>•</span>
+            <span>No Metal</span>
+            <span>•</span>
+            <span>Room Temp</span>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tab) {
+            // Hide all content
+            document.getElementById('content-daily').classList.add('hidden');
+            document.getElementById('content-weekly').classList.add('hidden');
+            document.getElementById('content-vacation').classList.add('hidden');
+            
+            // Reset tab styles
+            const tabs = ['daily', 'weekly', 'vacation'];
+            tabs.forEach(t => {
+                const el = document.getElementById('tab-' + t);
+                el.classList.remove('tab-active');
+                el.classList.add('text-slate-500');
+            });
+
+            // Show selected
+            document.getElementById('content-' + tab).classList.remove('hidden');
+            document.getElementById('tab-' + tab).classList.add('tab-active');
+            document.getElementById('tab-' + tab).classList.remove('text-slate-500');
+        }
+    </script>
+</body>
+</html>
