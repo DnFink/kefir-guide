@@ -22,14 +22,17 @@
 
         <!-- Tab Navigation -->
         <div class="flex border-b border-slate-100 cursor-pointer">
-            <div id="tab-daily" onclick="showTab('daily')" class="flex-1 py-4 text-center text-sm font-medium transition-colors tab-active">
+            <div id="tab-daily" onclick="showTab('daily')" class="flex-1 py-4 text-center text-xs sm:text-sm font-medium transition-colors tab-active">
                 Daily Cycle
             </div>
-            <div id="tab-weekly" onclick="showTab('weekly')" class="flex-1 py-4 text-center text-sm font-medium transition-colors text-slate-500 hover:bg-slate-50">
+            <div id="tab-weekly" onclick="showTab('weekly')" class="flex-1 py-4 text-center text-xs sm:text-sm font-medium transition-colors text-slate-500 hover:bg-slate-50">
                 Weekly
             </div>
-            <div id="tab-vacation" onclick="showTab('vacation')" class="flex-1 py-4 text-center text-sm font-medium transition-colors text-slate-500 hover:bg-slate-50">
+            <div id="tab-vacation" onclick="showTab('vacation')" class="flex-1 py-4 text-center text-xs sm:text-sm font-medium transition-colors text-slate-500 hover:bg-slate-50">
                 Vacation
+            </div>
+            <div id="tab-safety" onclick="showTab('safety')" class="flex-1 py-4 text-center text-xs sm:text-sm font-medium transition-colors text-slate-500 hover:bg-slate-50">
+                Safety
             </div>
         </div>
 
@@ -93,6 +96,28 @@
             </div>
         </div>
 
+        <!-- Safety Content -->
+        <div id="content-safety" class="p-6 hidden space-y-4">
+            <div class="bg-red-50 border border-red-100 rounded-xl p-4 text-sm text-red-800">
+                <strong>Important:</strong> Fermenting involves live bacteria. Use common sense and prioritize hygiene.
+            </div>
+            
+            <div class="space-y-4">
+                <div class="border-b border-slate-100 pb-3">
+                    <h4 class="font-bold text-slate-800 text-sm">The "Sniff Test"</h4>
+                    <p class="text-xs text-slate-600">Fresh kefir should smell yeasty or like sourdough. If it smells "rotten," putrid, or significantly off, discard the batch and rinse the grains thoroughly in fresh milk.</p>
+                </div>
+                <div class="border-b border-slate-100 pb-3">
+                    <h4 class="font-bold text-slate-800 text-sm">Watch for Mold</h4>
+                    <p class="text-xs text-slate-600">If you see fuzzy growth (black, green, or pink) on the surface, discard the entire batch and the grains to be safe.</p>
+                </div>
+                <div class="border-b border-slate-100 pb-3">
+                    <h4 class="font-bold text-slate-800 text-sm">Medical Disclaimer</h4>
+                    <p class="text-xs text-slate-600 italic">This guide is for informational purposes only. Consult a healthcare professional before adding fermented foods to your diet if you have a compromised immune system or specific health concerns.</p>
+                </div>
+            </div>
+        </div>
+
         <!-- Footer -->
         <div class="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-center gap-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
             <span>Glass Only</span>
@@ -109,9 +134,10 @@
             document.getElementById('content-daily').classList.add('hidden');
             document.getElementById('content-weekly').classList.add('hidden');
             document.getElementById('content-vacation').classList.add('hidden');
+            document.getElementById('content-safety').classList.add('hidden');
             
             // Reset tab styles
-            const tabs = ['daily', 'weekly', 'vacation'];
+            const tabs = ['daily', 'weekly', 'vacation', 'safety'];
             tabs.forEach(t => {
                 const el = document.getElementById('tab-' + t);
                 el.classList.remove('tab-active');
