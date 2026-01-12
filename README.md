@@ -7,7 +7,7 @@ A clean, responsive, and mobile-friendly workflow guide for managing milk kefir 
 ## Live Demo
 
 You can view the live guide here:  
-https://www.google.com/search?q=https://dnfink.github.io/kefir-guide/
+https://dnfink.github.io/kefir-guide/
 
 ---
 
